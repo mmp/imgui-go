@@ -29,62 +29,74 @@ IggFontGlyph iggFindGlyph(IggFont handle, int ch)
    return (IggFontGlyph)font->FindGlyph(ch);
 }
 
-int iggFontGlyphColored(IggFontGlyph handle) {
+int iggFontGlyphColored(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->Colored;
 }
 
-int iggFontGlyphVisible(IggFontGlyph handle) {
+int iggFontGlyphVisible(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->Visible;
 }
 
-int iggFontGlyphCodepoint(IggFontGlyph handle) {
+int iggFontGlyphCodepoint(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->Codepoint;
 }
 
-float iggFontGlyphAdvanceX(IggFontGlyph handle) {
+float iggFontGlyphAdvanceX(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->AdvanceX;
 }
 
-float iggFontGlyphX0(IggFontGlyph handle) {
+float iggFontGlyphX0(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->X0;
 }
 
-float iggFontGlyphY0(IggFontGlyph handle) {
+float iggFontGlyphY0(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->Y0;
 }
 
-float iggFontGlyphX1(IggFontGlyph handle) {
+float iggFontGlyphX1(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->X1;
 }
 
-float iggFontGlyphY1(IggFontGlyph handle) {
+float iggFontGlyphY1(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->Y1;
 }
 
-float iggFontGlyphU0(IggFontGlyph handle) {
+float iggFontGlyphU0(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->U0;
 }
 
-float iggFontGlyphV0(IggFontGlyph handle) {
+float iggFontGlyphV0(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->V0;
 }
 
-float iggFontGlyphU1(IggFontGlyph handle) {
+float iggFontGlyphU1(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->U1;
 }
 
-float iggFontGlyphV1(IggFontGlyph handle) {
+float iggFontGlyphV1(IggFontGlyph handle)
+{
     ImFontGlyph *glyph = reinterpret_cast<ImFontGlyph *>(handle);
     return glyph->V1;
 }
