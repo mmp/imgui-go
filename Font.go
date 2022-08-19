@@ -7,6 +7,9 @@ import "C"
 // Font describes one loaded font in an atlas.
 type Font uintptr
 
+// FontGlyph represents a single font glyph from a font atlas.
+type FontGlyph uintptr
+
 // DefaultFont can be used to refer to the default font of the current font atlas without
 // having the actual font reference.
 const DefaultFont Font = 0
@@ -42,4 +45,60 @@ func CalcTextSize(text string, hideTextAfterDoubleHash bool, wrapWidth float32) 
 
 func (font Font) handle() C.IggFont {
 	return C.IggFont(font)
+}
+
+func (font Font) FindGlyph(ch rune) FontGlyph {
+	return FontGlyph(C.iggFindGlyph(font.handle(), C.int(ch)))
+}
+
+func (glyph FontGlyph) handle() C.IggFontGlyph {
+	return C.IggFontGlyph(glyph)
+}
+
+func (glyph FontGlyph) Colored() bool {
+	return C.iggFontGlyphColored(glyph.handle()) != 0
+}
+
+func (glyph FontGlyph) Visible() bool {
+	return C.iggFontGlyphVisible(glyph.handle()) != 0
+}
+
+func (glyph FontGlyph) Codepoint() int {
+	return int(C.iggFontGlyphCodepoint(glyph.handle()))
+}
+
+func (glyph FontGlyph) AdvanceX() float32 {
+	return float32(C.iggFontGlyphAdvanceX(glyph.handle()))
+}
+
+func (glyph FontGlyph) X0() float32 {
+	return float32(C.iggFontGlyphX0(glyph.handle()))
+}
+
+func (glyph FontGlyph) Y0() float32 {
+	return float32(C.iggFontGlyphY0(glyph.handle()))
+}
+
+func (glyph FontGlyph) X1() float32 {
+	return float32(C.iggFontGlyphX1(glyph.handle()))
+}
+
+func (glyph FontGlyph) Y1() float32 {
+	return float32(C.iggFontGlyphY1(glyph.handle()))
+}
+
+func (glyph FontGlyph) U0() float32 {
+	return float32(C.iggFontGlyphU0(glyph.handle()))
+}
+
+func (glyph FontGlyph) V0() float32 {
+	return float32(C.iggFontGlyphV0(glyph.handle()))
+}
+
+func (glyph FontGlyph) U1() float32 {
+	return float32(C.iggFontGlyphU1(glyph.handle()))
+}
+
+func (glyph FontGlyph) V1() float32 {
+	return float32(C.iggFontGlyphV1(glyph.handle()))
 }
